@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    {% block styles %}
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base.css')}}">
+    {% endblock %}
+</head>
+
+<body>
+<div class="root">
+    <div class="header flex_center">
+        <form class="search_form" action="{{ url_for('web.search') }}" method="GET">
+            <input name="q" type="text" placeholder="请输入书名或ISBN号">
+            <input type="submit" value="搜索">
+        </form>
+    </div>
+    <div class="nav text-center">
+        <div class="recent col-md-2 col-md-offset-2">
+            <a href="{{ url_for('web.index')}}">
+                <span>最近上传</span>
+            </a>
+        </div>
+        <div class="gifts col-md-2">
+            <a href="{{ url_for('web.my_gifts')}}">
+                <span>礼物清单</span>
+            </a>
+        </div>
+        <div class="wish col-md-2">
+            <a href="{{ url_for('web.my_wish')}}">
+                <span>心愿清单</span>
+            </a>
+        </div>
+        <div class="pending col-md-2">
+            <a href="{{ url_for('web.my_wish')}}">
+                <span>鱼漂</span>
+            </a>
+        </div>
+    </div>
+    <hr>
+    {% with messages = get_flashed_messages()%}
+    {% if messages %}
+    {% for message in messages%}
+    <div class="flashed text-center ">
+        <span>{{message}}</span>
+    </div>
+    {% endfor %}
+    {% endif%}
+    {% endwith%}
+    {% block content%}{% endblock %}
+    <footer>
+        <hr>
+        <h4 class="text-center">版权所有人——檀彬</h4>
+    </footer>
+</div>
+
+</body>
+{% block scripts %}
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+{% endblock %}
+</html>

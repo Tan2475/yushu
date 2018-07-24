@@ -1,0 +1,34 @@
+a:link,a:hover,a:visited{
+    color:#333;
+    text-decoration:none;
+}
+
+.root{
+    height:auto;
+    min-width:720px;
+    max-width:920px;
+    margin:0 auto;
+}
+
+.flex_center{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.header{
+    height:60px;
+    width:100%;
+}
+
+.flashed{
+    padding:4px 0;
+    background:#ccc;
+}
+
+.text-omitted{
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}

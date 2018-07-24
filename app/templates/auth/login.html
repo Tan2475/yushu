@@ -1,0 +1,21 @@
+{% extends "auth/base.html" %}
+{% block title %}login{% endblock %}
+
+{% block context %}
+{% with message = get_flashed_messages() %}
+    {% if message %}
+        {% for msg in message %}
+            <p>{{ msg }}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<div class="register">
+    <form action="" method="POST">
+        <input type="text" name="nickname" value="{{ form.data[nickname] | default('',True) }}"
+               placeholder="请输入用户名">
+        <input type="password" name="password" placeholder="请输入密码">
+        <p><input type="checkbox" id="logintime"><label for="logintime">保持登陆7天</label></p>
+        <input type="submit" value="登陆">
+    </form>
+</div>
+{% endblock %}

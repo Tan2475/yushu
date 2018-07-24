@@ -1,0 +1,22 @@
+{% extends "auth/base.html" %}
+{% block title %}注册{% endblock %}
+
+{% block context %}
+<div>
+    {% for item in form %}
+    {% if item.errors %}
+    <p>{{item.errors[0] }}</p>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="register">
+    <form action="{{ url_for('web.register') }}" method="POST">
+        <input type="text" name="nickname"
+               placeholder="请输入用户名" value="{{ form.data[nickname] | default('',True)}}">
+        <input type="text" name="email" placeholder="请输入邮箱地址" value="{{ form.data[email] | default('',True)}}">
+        <input type="password" name="password" placeholder="请输入密码">
+        <input type="submit" value="注册">
+    </form>
+</div>
+{% endblock %}

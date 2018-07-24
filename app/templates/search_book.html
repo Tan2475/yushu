@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title%}index{% endblock%}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/search.css') }}">
+{% endblock %}
+{% block content %}
+<div class="books flex_center">
+    {{ super() }}
+    {% for book in books.books %}
+    <div class="book">
+        <img src="{{ book.image }}" width="120px" height="200px"/>
+        <div class="descript">
+            <a href="{{url_for('web.detail',isbn = book.isbn )}}">
+                <p class="h4">{{ book.title }}</p>
+                <p>{{ book.intro }}</p>
+                <p class="summary text-omitted">{{ book.summary }}</p>
+            </a>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+{% endblock %}

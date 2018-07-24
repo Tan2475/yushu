@@ -1,0 +1,15 @@
+.book_detail{
+    height:360px;
+    margin-bottom:60px;
+}
+
+.summary{
+    -webkit-line-clamp: 10;
+}
+
+.interaction{
+    width:240px;
+    margin-left:10px;
+    display:flex;
+    justify-content:space-between;
+}

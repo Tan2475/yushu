@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a8243d01-7826-4bd6-a9f9-9fdd8c7bb19f}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>manager.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="app\static\69397237_p0_master1200.jpg" />
+    <Content Include="app\templates\auth\base.html" />
+    <Content Include="app\templates\auth\login.html" />
+    <Content Include="app\templates\auth\register.html" />
+    <Content Include="app\templates\base.html" />
+    <Content Include="app\templates\book_detail.html" />
+    <Content Include="app\templates\search_book.html" />
+    <Content Include="requirement.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="app\forms\auth.py" />
+    <Compile Include="app\forms\book.py" />
+    <Compile Include="app\libs\helper.py" />
+    <Compile Include="app\libs\httper.py" />
+    <Compile Include="app\models\base.py" />
+    <Compile Include="app\models\book.py" />
+    <Compile Include="app\models\drift.py" />
+    <Compile Include="app\models\gift.py" />
+    <Compile Include="app\models\test.py" />
+    <Compile Include="app\models\user.py" />
+    <Compile Include="app\models\wish.py" />
+    <Compile Include="app\secure.py" />
+    <Compile Include="app\setting.py" />
+    <Compile Include="app\spider\yushu_book.py" />
+    <Compile Include="app\view_models\book.py" />
+    <Compile Include="app\web\auth.py" />
+    <Compile Include="app\web\book.py" />
+    <Compile Include="app\web\drift.py" />
+    <Compile Include="app\web\errors.py" />
+    <Compile Include="app\web\gift.py" />
+    <Compile Include="app\web\main.py" />
+    <Compile Include="app\web\passenger.py" />
+    <Compile Include="app\web\test.py" />
+    <Compile Include="app\web\wish.py" />
+    <Compile Include="app\web\__init__.py" />
+    <Compile Include="app\__init__.py" />
+    <Compile Include="manager.py" />
+    <Compile Include="test\test1.py" />
+    <Compile Include="__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app" />
+    <Folder Include="app\forms" />
+    <Folder Include="app\libs" />
+    <Folder Include="app\models" />
+    <Folder Include="app\spider" />
+    <Folder Include="app\static" />
+    <Folder Include="app\templates" />
+    <Folder Include="app\templates\auth" />
+    <Folder Include="app\view_models" />
+    <Folder Include="app\web" />
+    <Folder Include="test" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>

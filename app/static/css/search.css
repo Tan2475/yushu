@@ -1,0 +1,23 @@
+.books{
+    width:100%;
+    height:auto;
+    flex-direction:column;
+}
+
+.book{
+    height:200px;
+    display:flex;
+    margin:20px 0;
+}
+
+.descript{
+    width:500px;
+    height:100%;
+    margin-left:40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.summary{
+    -webkit-line-clamp: 6;
+}

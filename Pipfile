@@ -10,6 +10,7 @@ pymysql = "*"
 flask-script = "*"
 requests = "*"
 wtforms = "*"
+flask-login = "*"
 
 [dev-packages]
 "autopep8" = "*"
