@@ -32,3 +32,10 @@ a:link,a:hover,a:visited{
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }
+
+.user_manager{
+    width:120px;
+    display:flex;
+    justify-content:space-between;
+    padding-left:60px;
+}

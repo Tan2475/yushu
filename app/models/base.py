@@ -40,5 +40,3 @@ class Base(db.Model):
             return datetime.fromtimestamp(self.current_time)
         else:
             return None
-
-

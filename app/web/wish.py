@@ -1,18 +1,22 @@
-from flask import current_app, url_for, flash
+from flask import current_app, url_for, flash, render_template, redirect
 from flask_login import login_required, current_user
-from werkzeug.utils import redirect
 
 from app.models.base import db
-from app.models.gift import Gift
 from app.models.wish import Wish
 from app.spider.yushu_book import YuShuBook
 from . import web
+from app.view_models.drift import MyDrift
 
 
 @web.route("/my/wish")
 @login_required
 def my_wish():
-    return "get gift "
+    uid = current_user.id
+    wish_of_mine = Wish.get_user_wish(uid)
+    isbn_list = [wish.isbn for wish in wish_of_mine]
+    gift_count_list = Wish.get_gift_count(isbn_list)
+    my_wishes = MyDrift(wish_of_mine, gift_count_list)
+    return render_template("my_wishes.html", wishes=my_wishes.drifts)
 
 
 @web.route("/wish/book/<isbn>")
@@ -31,3 +35,5 @@ def save_to_wish(isbn):
     else:
         flash("请勿重复添加已赠送或者正在索要的书籍")
     return redirect(url_for('web.detail', isbn=isbn))
+
+

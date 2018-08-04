@@ -12,6 +12,7 @@ def create_app():
     app.config.from_object("app.setting")
 
     db.init_app(app)
+
     login_manager.init_app(app)
     login_manager.login_view = 'web.login'
     login_manager.login_message = '请先登录或注册'
@@ -21,6 +22,7 @@ def create_app():
 
     from app.web import web
     app.register_blueprint(web)
+
     return app
 
 

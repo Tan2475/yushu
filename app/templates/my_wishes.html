@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block styles %} {{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/search.css')}}"> {% endblock %} {% block content %} {{ super() }}
+<div class="row flex-vertical-center">
+    <div style="margin-top:20px;" class="col-md-6">
+        <span class="sub-title">我想索要的书籍共 {{ wishes | length }} 本</span>
+        <hr>
+    </div>
+</div>
+{% for wish in wishes %}
+<div class="book">
+    <img src="{{ wish.book.image }}" width="120px" height="200px" />
+    <div class="descript">
+        <a href="{{ url_for('web.detail', isbn=wish.book.isbn)}}">
+            <p class="h4">{{ wish.book.title }}</p>
+            <p>作者：{{ wish.book.author }}</p>
+            <p>出版方：{{ wish.book.publisher }}</p>
+            <p>价格：{{ wish.book.price }}</p>
+            <p>ISBN：{{ wish.book.isbn }}</p>
+        </a>
+    </div>
+    <div class="">
+        <a href="{{ url_for('web.detail', isbn=wish.book.isbn) }}">
+            <span class="bg-info">{{ wish.drifts_count }}人想送</span>
+        </a>
+    </div>
+</div>
+
+{% endfor %} {% endblock %}

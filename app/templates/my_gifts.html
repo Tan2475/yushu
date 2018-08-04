@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block styles %} {{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/search.css')}}"> {% endblock %} {% block content %} {{ super() }}
+<div class="row flex-vertical-center">
+    <div style="margin-top:20px;" class="col-md-6">
+        <span class="sub-title">我想赠送的书籍共 {{ gifts | length }} 本</span>
+        <hr>
+    </div>
+</div>
+{% for gift in gifts %}
+<div class="book">
+    <img src="{{ gift.book.image }}" width="120px" height="200px" />
+    <div class="descript">
+        <a href="{{ url_for('web.detail', isbn=gift.book.isbn)}}">
+            <p class="h4">{{ gift.book.title }}</p>
+            <p>作者：{{ gift.book.author }}</p>
+            <p>出版方：{{ gift.book.publisher }}</p>
+            <p>价格：{{ gift.book.price }}</p>
+            <p>ISBN：{{ gift.book.isbn }}</p>
+        </a>
+    </div>
+    <div class="">
+        <a href="{{ url_for('web.detail', isbn=gift.book.isbn) }}">
+            <span class="bg-info">{{ gift.drifts_count }}人想要</span>
+        </a>
+    </div>
+</div>
+{% endfor %} {% endblock %}
